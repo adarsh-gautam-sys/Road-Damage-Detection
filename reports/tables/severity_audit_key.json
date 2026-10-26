@@ -1,0 +1,902 @@
+[
+  {
+    "crop_id": "crop_001",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_002",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_003",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_004",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_005",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_006",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_007",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_008",
+    "subset": "tune_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_009",
+    "subset": "tune_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_010",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_011",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_012",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_013",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_014",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_015",
+    "subset": "tune_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_016",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_017",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_018",
+    "subset": "tune_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_019",
+    "subset": "tune_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_020",
+    "subset": "tune_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_021",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_022",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_023",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_024",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_025",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_026",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_027",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_028",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_029",
+    "subset": "tune_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_030",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_031",
+    "subset": "tune_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_032",
+    "subset": "tune_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_033",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_034",
+    "subset": "tune_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_035",
+    "subset": "tune_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_036",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_037",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_038",
+    "subset": "tune_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_039",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_040",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_041",
+    "subset": "tune_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_042",
+    "subset": "tune_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_043",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_044",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_045",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_046",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_047",
+    "subset": "tune_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_048",
+    "subset": "tune_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_049",
+    "subset": "tune_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_050",
+    "subset": "tune_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_051",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_052",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_053",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_054",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_055",
+    "subset": "eval_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_056",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_057",
+    "subset": "eval_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_058",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_059",
+    "subset": "eval_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_060",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_061",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_062",
+    "subset": "eval_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_063",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_064",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_065",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_066",
+    "subset": "eval_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_067",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_068",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_069",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_070",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_071",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_072",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_073",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_074",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_075",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_076",
+    "subset": "eval_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_077",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_078",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_079",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_080",
+    "subset": "eval_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_081",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_082",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_083",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_084",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_085",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_086",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_087",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_088",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_089",
+    "subset": "eval_50",
+    "class_code": "D00",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_090",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_091",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_092",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_093",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_094",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_095",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_096",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_097",
+    "subset": "eval_50",
+    "class_code": "D40",
+    "model_score": 44.723,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_098",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  },
+  {
+    "crop_id": "crop_099",
+    "subset": "eval_50",
+    "class_code": "D10",
+    "model_score": 36.4578,
+    "model_label": "Medium",
+    "extent": 0.168966,
+    "measure": "diag_ratio"
+  },
+  {
+    "crop_id": "crop_100",
+    "subset": "eval_50",
+    "class_code": "D20",
+    "model_score": 29.9769,
+    "model_label": "Medium",
+    "extent": 0.027006,
+    "measure": "area_ratio"
+  }
+]

@@ -24,6 +24,7 @@ coverage.xml
 /data/
 /runs/
 /media/
+/reports/audit_crops/
 *.pt
 *.pth
 *.onnx
