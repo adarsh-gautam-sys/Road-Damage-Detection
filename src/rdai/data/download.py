@@ -1,4 +1,10 @@
-"""Locate or download the RDD2022 India dataset (and optional Japan/Czech subsets)."""
+"""Locate or download the RDD2022 India dataset (and optional Japan/Czech subsets).
+
+Because the 2022 AWS S3 competition bucket (`bigdatacup.s3.ap-northeast-1.amazonaws.com`) now
+returns HTTP 403 Forbidden, this module downloads the exact country `.zip` slice directly from the
+official permanent Figshare archive (DOI: 10.6084/m9.figshare.21431547, file ID 38030910), where
+each country `.zip` is stored uncompressed (`method=0`) at known byte offsets.
+"""
 
 from __future__ import annotations
 
@@ -14,11 +20,20 @@ logger = logging.getLogger(__name__)
 ROOT_DIR = Path(__file__).resolve().parents[3]
 DEFAULT_RAW_DIR = ROOT_DIR / "data" / "rdd2022"
 
-# Official RDD2022 Figshare / sekilab dataset archive URLs
+RDD2022_FIGSHARE_URL = "https://ndownloader.figshare.com/files/38030910"
+
+# Exact uncompressed (`method=0`) inner `.zip` byte ranges inside Figshare file 38030910
+RDD2022_FIGSHARE_RANGES: dict[str, tuple[int, int]] = {
+    "Czech": (352223814, 609341031),
+    "India": (609341079, 1136050223),
+    "Japan": (1136050271, 2208649127),
+}
+
+# Retained for backwards-compatibility / reference
 RDD2022_URLS: dict[str, str] = {
-    "India": "https://bigdatacup.s3.ap-northeast-1.amazonaws.com/2022/CRDDC2022/RDD2022/Country_specific_data_CRDDC2022/RDD2022_India.zip",
-    "Japan": "https://bigdatacup.s3.ap-northeast-1.amazonaws.com/2022/CRDDC2022/RDD2022/Country_specific_data_CRDDC2022/RDD2022_Japan.zip",
-    "Czech": "https://bigdatacup.s3.ap-northeast-1.amazonaws.com/2022/CRDDC2022/RDD2022/Country_specific_data_CRDDC2022/RDD2022_Czech.zip",
+    "India": RDD2022_FIGSHARE_URL,
+    "Japan": RDD2022_FIGSHARE_URL,
+    "Czech": RDD2022_FIGSHARE_URL,
 }
 
 # Published RDD2022 India reference counts from PRD Section 7 (Arya et al., 2022)
@@ -57,12 +72,12 @@ def verify_rdd2022_layout(country_dir: Path) -> dict[str, Any]:
 def download_and_extract_country(
     country: str = "India",
     dest_root: Path = DEFAULT_RAW_DIR,
-    timeout: float = 60.0,
+    timeout: float = 120.0,
 ) -> Path:
-    """Download and extract an RDD2022 country archive if not already present."""
-    if country not in RDD2022_URLS:
+    """Download and extract an RDD2022 country archive via HTTP Range from official Figshare."""
+    if country not in RDD2022_FIGSHARE_RANGES:
         raise ValueError(
-            f"Unsupported RDD2022 country '{country}'. Choose from {list(RDD2022_URLS)}"
+            f"Unsupported RDD2022 country '{country}'. Choose from {list(RDD2022_FIGSHARE_RANGES)}"
         )
 
     country_dir = dest_root / country
@@ -73,14 +88,26 @@ def download_and_extract_country(
 
     dest_root.mkdir(parents=True, exist_ok=True)
     zip_path = dest_root / f"RDD2022_{country}.zip"
-    url = RDD2022_URLS[country]
+    start_byte, end_byte = RDD2022_FIGSHARE_RANGES[country]
+    expected_size = end_byte - start_byte + 1
 
-    if not zip_path.is_file():
-        logger.info("Downloading RDD2022 %s from %s -> %s", country, url, zip_path)
-        with requests.get(url, stream=True, timeout=timeout) as resp:
+    if not zip_path.is_file() or zip_path.stat().st_size != expected_size:
+        headers = {"Range": f"bytes={start_byte}-{end_byte}"}
+        logger.info(
+            "Downloading RDD2022 %s slice (%d MB) from Figshare -> %s",
+            country,
+            expected_size // (1024 * 1024),
+            zip_path,
+        )
+        with requests.get(
+            RDD2022_FIGSHARE_URL,
+            headers=headers,
+            stream=True,
+            timeout=timeout,
+        ) as resp:
             resp.raise_for_status()
             with zip_path.open("wb") as fh:
-                for chunk in resp.iter_content(chunk_size=1024 * 1024):
+                for chunk in resp.iter_content(chunk_size=4 * 1024 * 1024):
                     if chunk:
                         fh.write(chunk)
 
