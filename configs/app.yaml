@@ -1,0 +1,44 @@
+app:
+  title: "Road Damage AI API"
+  version: "0.1.0"
+  api_prefix: "/api/v1"
+  database_url: "sqlite:///./rdai.db"
+  media_dir: "media"
+
+model:
+  name: "yolo11s"
+  run: "e1_yolo11s_640"
+  weights_path: "runs/e1_yolo11s_640/weights/best.pt"
+  onnx_path: "runs/e1_yolo11s_640/weights/best.onnx"
+  default_conf: 0.25
+  iou_threshold: 0.45
+
+uploads:
+  max_photo_mb: 15
+  max_video_mb: 200
+  max_megapixels: 40
+  annotated_max_edge_px: 1280
+  thumb_max_edge_px: 320
+  allowed_image_formats:
+    - JPEG
+    - PNG
+    - WEBP
+
+geo:
+  track_tolerance_seconds: 5.0
+  india_bbox:
+    lat_min: 6.0
+    lat_max: 38.0
+    lng_min: 68.0
+    lng_max: 98.0
+
+pagination:
+  default_limit: 20
+  max_limit: 100
+
+cors:
+  allowed_origins:
+    - "http://localhost:3000"
+    - "http://localhost:5173"
+    - "http://127.0.0.1:3000"
+    - "http://127.0.0.1:5173"

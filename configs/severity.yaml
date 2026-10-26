@@ -1,0 +1,30 @@
+tier_bounds:
+  low_upper: 33.3
+  medium_upper: 66.7
+  max_score: 100.0
+
+classes:
+  D40:
+    name: pothole
+    measure: area_ratio
+    e_low: 0.015
+    e_high: 0.05
+    min_label: Low
+  D20:
+    name: alligator_crack
+    measure: area_ratio
+    e_low: 0.03
+    e_high: 0.10
+    min_label: Medium
+  D00:
+    name: longitudinal_crack
+    measure: diag_ratio
+    e_low: 0.15
+    e_high: 0.35
+    min_label: Low
+  D10:
+    name: transverse_crack
+    measure: diag_ratio
+    e_low: 0.15
+    e_high: 0.35
+    min_label: Low

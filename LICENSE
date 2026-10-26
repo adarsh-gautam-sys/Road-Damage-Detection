@@ -1,0 +1,11 @@
+GNU AFFERO GENERAL PUBLIC LICENSE
+Version 3, 19 November 2007
+
+Copyright (c) 2026 TiGeR (Adarsh Gautam)
+
+This project uses Ultralytics YOLO11 (AGPL-3.0). In accordance with Section 2 of docs/PRD.md
+and the Ultralytics AGPL-3.0 license terms, the complete source code of this repository is made
+publicly available under the GNU Affero General Public License v3.0 (or later).
+
+See https://www.gnu.org/licenses/agpl-3.0.en.html for the full license text, and see NOTICE.md
+for attributions of MIT-licensed patterns and conceptual references.

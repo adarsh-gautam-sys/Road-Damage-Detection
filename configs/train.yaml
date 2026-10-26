@@ -1,0 +1,24 @@
+model: yolo11s.pt
+data: configs/data.yaml
+epochs: 150
+patience: 50
+imgsz: 640
+batch: 16
+colab_pro_batch: 32
+cache: ram
+workers: 8
+seed: 0
+deterministic: true
+flipud: 0.0
+fliplr: 0.5
+mosaic: 1.0
+project: runs
+name: e1_yolo11s_640
+
+split:
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  block_size: 50
+  max_empty_train_share: 0.10
+  d10_repeat_factor: 3

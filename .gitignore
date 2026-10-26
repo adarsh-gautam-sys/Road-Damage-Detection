@@ -1,0 +1,44 @@
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Python bytecode & build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Test & linter caches
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+coverage.xml
+
+# Datasets, model weights, and runtime media (NEVER commit per AGENTS.md)
+data/
+runs/
+media/
+*.pt
+*.pth
+*.onnx
+*.sqlite
+*.db
+rdai.db*
+tests/fixtures/generated/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

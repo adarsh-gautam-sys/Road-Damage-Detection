@@ -1,0 +1,31 @@
+weights:
+  s_max: 0.45
+  density: 0.25
+  road_importance: 0.20
+  confidence: 0.10
+
+density_saturation_count: 10
+
+clustering:
+  eps_meters: 25.0
+  min_samples: 1
+  earth_radius_meters: 6371000.0
+
+bands:
+  low_max: 30
+  medium_max: 70
+
+road_importance:
+  motorway: 100
+  trunk: 100
+  primary: 85
+  secondary: 70
+  tertiary: 55
+  residential: 35
+  unclassified: 35
+  unknown: 50
+
+overpass:
+  url: "https://overpass-api.de/api/interpreter"
+  timeout_seconds: 5.0
+  search_radius_meters: 30
