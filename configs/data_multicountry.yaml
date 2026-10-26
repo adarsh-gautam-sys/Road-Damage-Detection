@@ -1,0 +1,12 @@
+path: data/rdd2022_multicountry_yolo
+train:
+  - images/train_india
+  - images/train_japan
+  - images/train_czech
+val: images/val
+test: images/test
+names:
+  0: D00
+  1: D10
+  2: D20
+  3: D40

@@ -168,10 +168,7 @@ def convert_voc_file(
     """Convert one Pascal VOC XML file and write the YOLO `.txt` label file."""
     boxes, dropped, clamped_count = parse_voc_xml(xml_path, class_map=class_map)
     out_txt_path.parent.mkdir(parents=True, exist_ok=True)
-    if boxes:
-        content = "\n".join(box.to_yolo_line() for box in boxes) + "\n"
-    else:
-        content = ""
+    content = "\n".join(box.to_yolo_line() for box in boxes) + "\n" if boxes else ""
     out_txt_path.write_text(content, encoding="utf-8")
     return boxes, dropped, clamped_count
 

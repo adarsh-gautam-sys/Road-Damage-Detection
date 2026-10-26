@@ -152,16 +152,14 @@ def apply_train_background_cap(
     empties = [r for r in train_records if not r.classes]
 
     # Solve E_max / (P + E_max) <= max_empty_share  =>  E_max = floor(P * s / (1 - s))
-    max_empty_count = int(( len(positives) * max_empty_share ) / (1.0 - max_empty_share))
+    max_empty_count = int((len(positives) * max_empty_share) / (1.0 - max_empty_share))
     if len(empties) <= max_empty_count:
         return list(train_records), 0
 
     rng = random.Random(seed)
     sampled_empties = list(empties)
     rng.shuffle(sampled_empties)
-    kept_empties = sorted(
-        sampled_empties[:max_empty_count], key=lambda r: (r.file_number, r.stem)
-    )
+    kept_empties = sorted(sampled_empties[:max_empty_count], key=lambda r: (r.file_number, r.stem))
     dropped_count = len(empties) - len(kept_empties)
 
     combined = sorted(positives + kept_empties, key=lambda r: (r.file_number, r.stem))

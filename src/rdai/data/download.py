@@ -61,7 +61,9 @@ def download_and_extract_country(
 ) -> Path:
     """Download and extract an RDD2022 country archive if not already present."""
     if country not in RDD2022_URLS:
-        raise ValueError(f"Unsupported RDD2022 country '{country}'. Choose from {list(RDD2022_URLS)}")
+        raise ValueError(
+            f"Unsupported RDD2022 country '{country}'. Choose from {list(RDD2022_URLS)}"
+        )
 
     country_dir = dest_root / country
     status = verify_rdd2022_layout(country_dir)

@@ -111,7 +111,9 @@ def generate_eda_figures(
         edgecolor="#1f2937",
         linewidth=0.8,
     )
-    ax.set_title("RDD2022 India — Bounding Box Counts by Damage Class", fontsize=12, fontweight="bold")
+    ax.set_title(
+        "RDD2022 India — Bounding Box Counts by Damage Class", fontsize=12, fontweight="bold"
+    )
     ax.set_ylabel("Number of Annotated Boxes")
     ax.grid(axis="y", linestyle="--", alpha=0.4)
     for bar, cnt in zip(bars, counts, strict=True):
@@ -236,7 +238,9 @@ def save_eda_artifacts(
             },
         }
 
-    generate_eda_figures(xml_dir=xml_dir, img_dir=img_dir, out_dir=figures_dir, summary_override=summary)
+    generate_eda_figures(
+        xml_dir=xml_dir, img_dir=img_dir, out_dir=figures_dir, summary_override=summary
+    )
     out_json = tables_dir / "eda_summary.json"
     out_json.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     return summary
