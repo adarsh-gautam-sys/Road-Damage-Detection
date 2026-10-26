@@ -1,0 +1,17 @@
+{
+  "source": "RDD2022_India_published_and_fixtures",
+  "total_images": 7706,
+  "test_images_unlabelled": 1959,
+  "total_boxes": 6831,
+  "class_counts": {
+    "D00": 1555,
+    "D10": 68,
+    "D20": 2021,
+    "D40": 3187
+  },
+  "expected_split_counts": {
+    "train": 5394,
+    "val": 1156,
+    "test": 1156
+  }
+}
