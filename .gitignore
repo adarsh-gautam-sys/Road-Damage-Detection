@@ -21,16 +21,16 @@ htmlcov/
 coverage.xml
 
 # Datasets, model weights, and runtime media (NEVER commit per AGENTS.md)
-data/
-runs/
-media/
+/data/
+/runs/
+/media/
 *.pt
 *.pth
 *.onnx
 *.sqlite
 *.db
 rdai.db*
-tests/fixtures/generated/
+/tests/fixtures/generated/
 
 # Environment & secrets
 .env
