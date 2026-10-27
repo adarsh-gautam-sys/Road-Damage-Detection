@@ -168,7 +168,7 @@ def run_training_experiment(
     profile = detect_gpu_training_profile(gpu_name=gpu_name)
 
     # Ensure data YAML has an absolute `path` when running on Colab so Ultralytics DATASETS_DIR is bypassed
-    data_yaml_path = Path(str(spec.get("data", DEFAULT_DATA_YAML)))
+    data_yaml_path = Path(str(spec.get("data", "configs/data.yaml")))
     if not data_yaml_path.is_absolute():
         data_yaml_path = ROOT_DIR / data_yaml_path
     if data_yaml_path.is_file() and yolo_loader is None:
