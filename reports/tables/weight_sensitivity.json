@@ -1,0 +1,94 @@
+{
+  "perturbations": [
+    {
+      "weight": "s_max",
+      "change": "+20%",
+      "spearman_rho": 1.0,
+      "weights": {
+        "s_max": 0.4954,
+        "density": 0.2294,
+        "road_importance": 0.1835,
+        "confidence": 0.0917
+      }
+    },
+    {
+      "weight": "s_max",
+      "change": "-20%",
+      "spearman_rho": 1.0,
+      "weights": {
+        "s_max": 0.3956,
+        "density": 0.2747,
+        "road_importance": 0.2198,
+        "confidence": 0.1099
+      }
+    },
+    {
+      "weight": "density",
+      "change": "+20%",
+      "spearman_rho": 1.0,
+      "weights": {
+        "s_max": 0.4286,
+        "density": 0.2857,
+        "road_importance": 0.1905,
+        "confidence": 0.0952
+      }
+    },
+    {
+      "weight": "density",
+      "change": "-20%",
+      "spearman_rho": 1.0,
+      "weights": {
+        "s_max": 0.4737,
+        "density": 0.2105,
+        "road_importance": 0.2105,
+        "confidence": 0.1053
+      }
+    },
+    {
+      "weight": "road_importance",
+      "change": "+20%",
+      "spearman_rho": 1.0,
+      "weights": {
+        "s_max": 0.4327,
+        "density": 0.2404,
+        "road_importance": 0.2308,
+        "confidence": 0.0962
+      }
+    },
+    {
+      "weight": "road_importance",
+      "change": "-20%",
+      "spearman_rho": 1.0,
+      "weights": {
+        "s_max": 0.4688,
+        "density": 0.2604,
+        "road_importance": 0.1667,
+        "confidence": 0.1042
+      }
+    },
+    {
+      "weight": "confidence",
+      "change": "+20%",
+      "spearman_rho": 1.0,
+      "weights": {
+        "s_max": 0.4412,
+        "density": 0.2451,
+        "road_importance": 0.1961,
+        "confidence": 0.1176
+      }
+    },
+    {
+      "weight": "confidence",
+      "change": "-20%",
+      "spearman_rho": 1.0,
+      "weights": {
+        "s_max": 0.4592,
+        "density": 0.2551,
+        "road_importance": 0.2041,
+        "confidence": 0.0816
+      }
+    }
+  ],
+  "min_spearman_rho": 1.0,
+  "mean_spearman_rho": 1.0
+}

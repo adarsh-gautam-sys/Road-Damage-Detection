@@ -1,0 +1,14 @@
+id,image_id,class_code,class_name,confidence,x1,y1,x2,y2,extent,measure,severity_score,severity_label,lat,lng,segment_id,source_filename
+1,1,D40,pothole,0.91,100.0,180.0,290.0,340.0,0.055,area_ratio,88.4,High,18.5204,73.8567,1,india_demo_01.jpg
+2,2,D20,alligator_crack,0.87,100.0,180.0,290.0,340.0,0.055,area_ratio,79.2,High,18.5205,73.8568,1,india_demo_02.jpg
+3,3,D40,pothole,0.85,100.0,180.0,290.0,340.0,0.055,area_ratio,74.0,High,18.5206,73.8567,1,india_demo_03.jpg
+4,4,D40,pothole,0.89,100.0,180.0,290.0,340.0,0.055,area_ratio,82.5,High,28.6139,77.209,2,india_demo_04.jpg
+5,5,D00,longitudinal_crack,0.82,100.0,180.0,290.0,340.0,0.028,diagonal_ratio,61.0,Medium,28.614,77.2091,2,india_demo_05.jpg
+6,6,D40,pothole,0.86,100.0,180.0,290.0,340.0,0.055,area_ratio,76.8,High,19.076,72.8777,3,india_demo_06.jpg
+7,7,D20,alligator_crack,0.84,100.0,180.0,290.0,340.0,0.055,area_ratio,71.5,High,12.9716,77.5946,4,india_demo_07.jpg
+8,8,D40,pothole,0.8,100.0,180.0,290.0,340.0,0.028,area_ratio,60.0,Medium,13.0827,80.2707,5,india_demo_08.jpg
+9,9,D00,longitudinal_crack,0.78,100.0,180.0,290.0,340.0,0.028,diagonal_ratio,54.5,Medium,17.385,78.4867,6,india_demo_09.jpg
+10,10,D10,transverse_crack,0.76,100.0,180.0,290.0,340.0,0.028,diagonal_ratio,48.0,Medium,22.5726,88.3639,7,india_demo_10.jpg
+11,11,D00,longitudinal_crack,0.75,100.0,180.0,290.0,340.0,0.028,diagonal_ratio,42.0,Medium,23.0225,72.5714,8,india_demo_11.jpg
+12,12,D00,longitudinal_crack,0.72,100.0,180.0,290.0,340.0,0.01,diagonal_ratio,26.5,Low,26.9124,75.7873,9,india_demo_12.jpg
+13,13,D10,transverse_crack,0.7,100.0,180.0,290.0,340.0,0.01,diagonal_ratio,19.0,Low,21.1458,79.0882,10,india_demo_13.jpg

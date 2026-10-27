@@ -1,0 +1,11 @@
+Rank,Segment ID,Priority Score,Label,S_max,Density (D),Road Importance (R),Confidence (C),Road Class,Detections,Status
+1,1,76.05,High,88.4,30.0,100.0,87.7,motorway,3,new
+2,2,70.67,High,82.5,20.0,100.0,85.5,trunk,2,new
+3,3,62.66,Medium,76.8,10.0,85.0,86.0,primary,1,new
+4,4,60.08,Medium,71.5,10.0,85.0,84.0,primary,1,new
+5,5,51.5,Medium,60.0,10.0,70.0,80.0,secondary,1,new
+6,6,48.83,Medium,54.5,10.0,70.0,78.0,secondary,1,new
+7,7,42.7,Medium,48.0,10.0,55.0,76.0,tertiary,1,new
+8,8,39.9,Medium,42.0,10.0,55.0,75.0,tertiary,1,new
+9,9,28.62,Low,26.5,10.0,35.0,72.0,residential,1,new
+10,10,25.05,Low,19.0,10.0,35.0,70.0,residential,1,new

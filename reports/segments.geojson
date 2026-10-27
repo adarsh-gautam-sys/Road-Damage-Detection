@@ -1,0 +1,195 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.856733,
+          18.5205
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "n_detections": 3,
+        "max_severity": 88.4,
+        "road_class": "motorway",
+        "priority_score": 76.0467,
+        "priority_label": "High",
+        "status": "new"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.20905,
+          28.61395
+        ]
+      },
+      "properties": {
+        "id": 2,
+        "n_detections": 2,
+        "max_severity": 82.5,
+        "road_class": "trunk",
+        "priority_score": 70.675,
+        "priority_label": "High",
+        "status": "new"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8777,
+          19.076
+        ]
+      },
+      "properties": {
+        "id": 3,
+        "n_detections": 1,
+        "max_severity": 76.8,
+        "road_class": "primary",
+        "priority_score": 62.66,
+        "priority_label": "Medium",
+        "status": "new"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.5946,
+          12.9716
+        ]
+      },
+      "properties": {
+        "id": 4,
+        "n_detections": 1,
+        "max_severity": 71.5,
+        "road_class": "primary",
+        "priority_score": 60.075,
+        "priority_label": "Medium",
+        "status": "new"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2707,
+          13.0827
+        ]
+      },
+      "properties": {
+        "id": 5,
+        "n_detections": 1,
+        "max_severity": 60.0,
+        "road_class": "secondary",
+        "priority_score": 51.5,
+        "priority_label": "Medium",
+        "status": "new"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4867,
+          17.385
+        ]
+      },
+      "properties": {
+        "id": 6,
+        "n_detections": 1,
+        "max_severity": 54.5,
+        "road_class": "secondary",
+        "priority_score": 48.825,
+        "priority_label": "Medium",
+        "status": "new"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.3639,
+          22.5726
+        ]
+      },
+      "properties": {
+        "id": 7,
+        "n_detections": 1,
+        "max_severity": 48.0,
+        "road_class": "tertiary",
+        "priority_score": 42.7,
+        "priority_label": "Medium",
+        "status": "new"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.5714,
+          23.0225
+        ]
+      },
+      "properties": {
+        "id": 8,
+        "n_detections": 1,
+        "max_severity": 42.0,
+        "road_class": "tertiary",
+        "priority_score": 39.9,
+        "priority_label": "Medium",
+        "status": "new"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.7873,
+          26.9124
+        ]
+      },
+      "properties": {
+        "id": 9,
+        "n_detections": 1,
+        "max_severity": 26.5,
+        "road_class": "residential",
+        "priority_score": 28.625,
+        "priority_label": "Low",
+        "status": "new"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.0882,
+          21.1458
+        ]
+      },
+      "properties": {
+        "id": 10,
+        "n_detections": 1,
+        "max_severity": 19.0,
+        "road_class": "residential",
+        "priority_score": 25.05,
+        "priority_label": "Low",
+        "status": "new"
+      }
+    }
+  ]
+}

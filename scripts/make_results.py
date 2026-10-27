@@ -11,7 +11,10 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+
+from rdai.severity.rules import compute_severity_from_extent, load_severity_config
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_METRICS_PATH = ROOT_DIR / "reports" / "metrics.json"
@@ -133,6 +136,51 @@ def _plot_training_curves_from_csv(results_csv: Path, out_path: Path) -> None:
     plt.close(fig)
 
 
+def _plot_severity_and_priority_slide_figure(out_path: Path) -> None:
+    """Plot Slide 7 figure: piecewise-linear severity curves S(e) and priority term breakdown."""
+    sev_cfg = load_severity_config()
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.0, 4.4), dpi=150)
+
+    extents = np.linspace(0.0, 0.50, 250)
+    colors = {"D40": "#dc2626", "D20": "#d97706", "D00": "#2563eb"}
+    labels = {
+        "D40": "D40 Pothole (Area Ratio)",
+        "D20": "D20 Alligator Crack (Area Ratio)",
+        "D00": "D00/D10 Linear Crack (Diag Ratio)",
+    }
+    for cls_code in ("D40", "D20", "D00"):
+        scores = [
+            compute_severity_from_extent(cls_code, float(e), config=sev_cfg)["score"]
+            for e in extents
+        ]
+        ax1.plot(extents, scores, label=labels[cls_code], color=colors[cls_code], linewidth=2.2)
+
+    ax1.axhline(33.3, color="#6b7280", linestyle="--", linewidth=1.0, alpha=0.7)
+    ax1.axhline(66.7, color="#6b7280", linestyle="--", linewidth=1.0, alpha=0.7)
+    ax1.set_title("Continuous Severity Score S(e) by Class", fontweight="bold")
+    ax1.set_xlabel("Normalized Extent (e)")
+    ax1.set_ylabel("Severity Score S (0–100)")
+    ax1.set_ylim(0, 105)
+    ax1.legend(fontsize=8)
+    ax1.grid(True, linestyle="--", alpha=0.35)
+
+    # Worked example breakdown (PRD Section 10: 36 + 2.5 + 14 + 8 = 60.5)
+    terms = ["0.45 * S_max\n(36.0)", "0.25 * D\n(2.5)", "0.20 * R\n(14.0)", "0.10 * C\n(8.0)"]
+    vals = [36.0, 2.5, 14.0, 8.0]
+    bar_colors = ["#dc2626", "#f59e0b", "#2563eb", "#059669"]
+    ax2.bar(terms, vals, color=bar_colors, width=0.52)
+    ax2.set_title("Worked Priority Example (P = 60.5, Medium)", fontweight="bold")
+    ax2.set_ylabel("Weighted Contribution to P")
+    ax2.set_ylim(0, 45)
+    ax2.grid(axis="y", linestyle="--", alpha=0.35)
+
+    plt.tight_layout()
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(out_path)
+    plt.close(fig)
+
+
 def build_all_results(
     metrics_path: Path = DEFAULT_METRICS_PATH,
     tables_dir: Path = DEFAULT_TABLES_DIR,
@@ -142,6 +190,8 @@ def build_all_results(
     """Generate PRD Section 13 tables and figures strictly from `reports/metrics.json`."""
     tables_dir.mkdir(parents=True, exist_ok=True)
     figures_dir.mkdir(parents=True, exist_ok=True)
+
+    _plot_severity_and_priority_slide_figure(figures_dir / "severity_priority_curves.png")
 
     if not metrics_path.is_file():
         metrics_doc: dict[str, Any] = {"status": "awaiting_colab_runs", "experiments": {}}
