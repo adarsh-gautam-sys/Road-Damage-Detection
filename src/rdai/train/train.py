@@ -163,16 +163,22 @@ def run_training_experiment(
     yolo_loader: Callable[[str], Any] | None = None,
 ) -> dict[str, Any]:
     """Run or resume a YOLO11 training experiment (`E1`..`E7`)."""
-    try:
-        from ultralytics import settings as ul_settings
-
-        ul_settings.update({"datasets_dir": str(ROOT_DIR)})
-    except Exception:
-        pass
-
     loader = yolo_loader if yolo_loader is not None else _default_yolo_loader
     spec = build_experiment_spec(experiment_id, seed_override=seed_override)
     profile = detect_gpu_training_profile(gpu_name=gpu_name)
+
+    # Ensure data YAML has an absolute `path` when running on Colab so Ultralytics DATASETS_DIR is bypassed
+    data_yaml_path = Path(str(spec.get("data", DEFAULT_DATA_YAML)))
+    if not data_yaml_path.is_absolute():
+        data_yaml_path = ROOT_DIR / data_yaml_path
+    if data_yaml_path.is_file() and yolo_loader is None:
+        with data_yaml_path.open("r", encoding="utf-8") as fh:
+            d_cfg = yaml.safe_load(fh)
+        rel_p = Path(str(d_cfg.get("path", "data/rdd2022_india_yolo")))
+        if not rel_p.is_absolute():
+            d_cfg["path"] = (ROOT_DIR / rel_p).resolve().as_posix()
+            with data_yaml_path.open("w", encoding="utf-8") as fh:
+                yaml.safe_dump(d_cfg, fh, sort_keys=False)
 
     target_project = Path(project_dir) if project_dir is not None else Path(spec["project"])
     run_name = str(spec["name"])
