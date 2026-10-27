@@ -25,7 +25,7 @@ def parse_csv_track(csv_source: Path | str | bytes) -> list[TrackPoint]:
         text = csv_source.read_text(encoding="utf-8")
     elif isinstance(csv_source, bytes):
         text = csv_source.decode("utf-8")
-    elif Path(csv_source).is_file():
+    elif "\n" not in str(csv_source) and Path(csv_source).is_file():
         text = Path(csv_source).read_text(encoding="utf-8")
     else:
         text = str(csv_source)
@@ -48,7 +48,7 @@ def parse_gpx_track(gpx_source: Path | str | bytes) -> list[TrackPoint]:
         xml_text = gpx_source.read_text(encoding="utf-8")
     elif isinstance(gpx_source, bytes):
         xml_text = gpx_source.decode("utf-8")
-    elif Path(gpx_source).is_file():
+    elif "\n" not in str(gpx_source) and "<" not in str(gpx_source) and Path(gpx_source).is_file():
         xml_text = Path(gpx_source).read_text(encoding="utf-8")
     else:
         xml_text = str(gpx_source)

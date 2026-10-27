@@ -1,5 +1,6 @@
 # Changelog
 
+- **M7 (2026-10-27):** Add FastAPI application (`src/rdai/api/main.py`), SQLAlchemy 2.0 SQLite models (`images`, `detections`, `segments`, `jobs`), YAML + env config (`U09`), content-based upload validation & EXIF stripping (`U10`), OpenAPI snapshot (`A10`), and integration/API/security suites (`I01`–`I03`, `I06`, `A01`–`A12`, `S01`–`S04`).
 - **M6 (2026-10-27):** Add 4-term maintenance priority scoring (`P = 0.45*S_max + 0.25*D + 0.20*R + 0.10*C`, `U07` + Hypothesis monotonicity test), 20% weight perturbation Spearman stability helper, and stateful DBSCAN segment reclustering & re-ranking (`I04`, `I05`).
 - **M5 (2026-10-27):** Add EXIF GPS parser & stripper (`U04` + Hypothesis random-bytes fuzz test), GPX/CSV track interpolation (`U05`), Haversine DBSCAN clustering (`U06`), mocked OSM Overpass road importance lookup, and fix RDD2022 download via official Figshare byte-range slicing.
 - **M4 (2026-10-27):** Add rule-based severity assessment module (`src/rdai/severity/rules.py`, `U03` + Hypothesis property tests), YOLO11 detector & ByteTrack wrappers (`src/rdai/inference/detector.py`, `tracker.py`, `U08`), and 100-sample blind severity audit script (`scripts/audit_severity.py`).
