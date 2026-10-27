@@ -163,6 +163,13 @@ def run_training_experiment(
     yolo_loader: Callable[[str], Any] | None = None,
 ) -> dict[str, Any]:
     """Run or resume a YOLO11 training experiment (`E1`..`E7`)."""
+    try:
+        from ultralytics import settings as ul_settings
+
+        ul_settings.update({"datasets_dir": str(ROOT_DIR)})
+    except Exception:
+        pass
+
     loader = yolo_loader if yolo_loader is not None else _default_yolo_loader
     spec = build_experiment_spec(experiment_id, seed_override=seed_override)
     profile = detect_gpu_training_profile(gpu_name=gpu_name)
