@@ -2,5 +2,21 @@
   "status": "awaiting_colab_runs",
   "generated_at": null,
   "optimal_conf": null,
-  "experiments": {}
+  "experiments": {},
+  "performance": {
+    "P01_photo_20_seq": {
+      "n_requests": 20,
+      "p50_ms": 71.89,
+      "p95_ms": 109.86
+    },
+    "P02_memory_100_req": {
+      "n_requests": 100,
+      "growth_mb": 0.365,
+      "peak_traced_mb": 0.505
+    },
+    "P03_video_720p_job": {
+      "elapsed_s": 0.103,
+      "unique_detections": 1
+    }
+  }
 }

@@ -9,7 +9,7 @@ import numpy as np
 import pytest
 
 from rdai.inference.detector import RoadDamageDetector
-from rdai.inference.tracker import deduplicate_tracked_frames
+from rdai.inference.tracker import deduplicate_tracked_frames, track_video_file
 
 
 class _MockBoxes:
@@ -163,3 +163,26 @@ def test_audit_severity_sheet_generation_and_metrics(project_root: Path, tmp_pat
     )
     assert audit_stats["agreement"] == pytest.approx(1.0)
     assert audit_stats["cohens_kappa"] >= 0.90
+
+
+def test_track_video_file_with_mock_model(generated_fixtures_dir: Path) -> None:
+    """Verify `track_video_file` processes a real MP4 fixture and deduplicates tracks."""
+    video_path = generated_fixtures_dir / "sample_drive.mp4"
+    mock_res = _MockResult(
+        xyxy=[[100.0, 150.0, 220.0, 260.0]],
+        conf=[0.84],
+        cls=[3],
+        orig_shape=(320, 320),
+    )
+    mock_res.boxes.id = np.array([1], dtype=float)
+    progress_vals: list[float] = []
+    out = track_video_file(
+        video_path=video_path,
+        model=_MockModel(mock_res),
+        conf=0.25,
+        progress_callback=progress_vals.append,
+    )
+    assert out["frames_processed"] == 15
+    assert out["raw_detections"] == 15
+    assert len(out["unique_detections"]) == 1
+    assert progress_vals[-1] == 1.0

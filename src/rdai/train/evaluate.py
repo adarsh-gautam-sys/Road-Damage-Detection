@@ -337,6 +337,35 @@ def evaluate_checkpoint_and_update_metrics(
     return formatted
 
 
+def apply_robustness_perturbation(image: Any, kind: str) -> Any:
+    """Apply an M06 robustness perturbation (`brightness_plus_30`, `brightness_minus_30`, `gaussian_blur`, `jpeg_q30`, `half_size`)."""
+    import io
+
+    from PIL import Image, ImageEnhance, ImageFilter
+
+    rgb = (
+        image.convert("RGB")
+        if isinstance(image, Image.Image)
+        else Image.fromarray(image).convert("RGB")
+    )
+    if kind == "brightness_plus_30":
+        return ImageEnhance.Brightness(rgb).enhance(1.30)
+    if kind == "brightness_minus_30":
+        return ImageEnhance.Brightness(rgb).enhance(0.70)
+    if kind == "gaussian_blur":
+        return rgb.filter(ImageFilter.GaussianBlur(radius=2.0))
+    if kind == "jpeg_q30":
+        buf = io.BytesIO()
+        rgb.save(buf, format="JPEG", quality=30)
+        buf.seek(0)
+        with Image.open(buf) as comp:
+            return comp.convert("RGB")
+    if kind == "half_size":
+        w, h = rgb.size
+        return rgb.resize((max(1, w // 2), max(1, h // 2)), Image.Resampling.BILINEAR)
+    raise ValueError(f"Unknown perturbation kind: {kind}")
+
+
 def main() -> None:
     """CLI entrypoint for `make eval`."""
     logging.basicConfig(level=logging.INFO)

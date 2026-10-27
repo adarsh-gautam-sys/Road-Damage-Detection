@@ -118,3 +118,62 @@ def test_s04_served_media_images_carry_no_exif_gps(
         served_exif = piexif.load(m_resp.content)
         assert served_exif.get("GPS", {}) == {}
         assert served_exif.get("Exif", {}) == {}
+
+
+def test_s05_secrets_scan_finds_nothing(project_root: Path) -> None:
+    """S05: Tracked repository files contain no hardcoded secrets, private keys, or API tokens."""
+    import re
+    import shutil
+    import subprocess
+
+    gitleaks_bin = shutil.which("gitleaks")
+    if gitleaks_bin:
+        res = subprocess.run(
+            [gitleaks_bin, "detect", "--source", str(project_root), "--no-banner"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        assert res.returncode == 0, f"gitleaks found potential secrets:\n{res.stdout}\n{res.stderr}"
+
+    secret_patterns = [
+        re.compile(r"AKIA[0-9A-Z]{16}"),  # AWS Access Key ID
+        re.compile(r"ghp_[A-Za-z0-9]{36}"),  # GitHub Personal Access Token
+        re.compile(r"AIza[0-9A-Za-z\-_]{35}"),  # Google API Key
+        re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+    ]
+
+    git_files = subprocess.run(
+        ["git", "ls-files"],
+        cwd=str(project_root),
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.splitlines()
+
+    for rel_path in git_files:
+        if rel_path.endswith((".png", ".jpg", ".mp4", ".db")):
+            continue
+        file_path = project_root / rel_path
+        if not file_path.is_file():
+            continue
+        text = file_path.read_text(encoding="utf-8", errors="ignore")
+        for pat in secret_patterns:
+            match = pat.search(text)
+            assert match is None, f"Secret pattern '{pat.pattern}' matched in {rel_path}"
+
+
+def test_s06_dependencies_audit_configured(project_root: Path) -> None:
+    """S06: Dependency pinning and `pip_audit` availability check."""
+    import importlib.util
+
+    req_file = project_root / "requirements.txt"
+    assert req_file.is_file()
+    lines = [
+        ln.strip()
+        for ln in req_file.read_text(encoding="utf-8").splitlines()
+        if ln.strip() and not ln.strip().startswith("#")
+    ]
+    assert len(lines) >= 10
+    assert all("==" in ln or ">=" in ln for ln in lines)
+    assert importlib.util.find_spec("pip_audit") is not None

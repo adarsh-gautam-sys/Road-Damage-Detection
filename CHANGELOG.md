@@ -1,5 +1,6 @@
 # Changelog
 
+- **M9 (2026-10-27):** Add performance benchmark suite (`P01`–`P03` in `tests/perf/test_perf.py`), repository secret and dependency audits (`S05`, `S06`), model robustness & speed tests (`M06`, `M08`), `Dockerfile`, and verify $\ge 80\%$ test coverage gate (`make cov`).
 - **M8 (2026-10-27):** Add Folium interactive map builder (`src/rdai/reports/map.py`, `scripts/make_map.py`, `reports/map.html`), CSV/GeoJSON/Top-10 segment exporters (`src/rdai/reports/export.py`), slide figures, `notebooks/03_results.ipynb`, and automated acceptance tests `AT1`–`AT5`.
 - **M7 (2026-10-27):** Add FastAPI application (`src/rdai/api/main.py`), SQLAlchemy 2.0 SQLite models (`images`, `detections`, `segments`, `jobs`), YAML + env config (`U09`), content-based upload validation & EXIF stripping (`U10`), OpenAPI snapshot (`A10`), and integration/API/security suites (`I01`–`I03`, `I06`, `A01`–`A12`, `S01`–`S04`).
 - **M6 (2026-10-27):** Add 4-term maintenance priority scoring (`P = 0.45*S_max + 0.25*D + 0.20*R + 0.10*C`, `U07` + Hypothesis monotonicity test), 20% weight perturbation Spearman stability helper, and stateful DBSCAN segment reclustering & re-ranking (`I04`, `I05`).
