@@ -1,21 +1,134 @@
 {
-  "status": "awaiting_colab_runs",
-  "generated_at": null,
-  "optimal_conf": null,
-  "experiments": {},
+  "status": "populated",
+  "generated_at": "2026-10-28T09:30:19.562937+00:00",
+  "optimal_conf": 0.193,
+  "experiments": {
+    "E1": {
+      "experiment_id": "E1",
+      "split": "test",
+      "params_m": 9.4,
+      "gpu_ms": 1.28,
+      "cpu_ms": 151.71,
+      "overall": {
+        "precision": 0.4487,
+        "recall": 0.3467,
+        "map50": 0.3655,
+        "map50_95": 0.1728
+      },
+      "per_class": {
+        "D00": {
+          "precision": 0.3223,
+          "recall": 0.2295,
+          "ap50": 0.2409,
+          "ap50_95": 0.1243
+        },
+        "D10": {
+          "precision": 0.4316,
+          "recall": 0.1538,
+          "ap50": 0.2221,
+          "ap50_95": 0.1046
+        },
+        "D20": {
+          "precision": 0.5443,
+          "recall": 0.6073,
+          "ap50": 0.5885,
+          "ap50_95": 0.2921
+        },
+        "D40": {
+          "precision": 0.4964,
+          "recall": 0.3963,
+          "ap50": 0.4105,
+          "ap50_95": 0.1701
+        }
+      },
+      "confusion_matrix": [
+        [
+          77.0,
+          1.0,
+          2.0,
+          1.0,
+          202.0
+        ],
+        [
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          7.0
+        ],
+        [
+          6.0,
+          0.0,
+          201.0,
+          3.0,
+          203.0
+        ],
+        [
+          4.0,
+          0.0,
+          4.0,
+          230.0,
+          316.0
+        ],
+        [
+          157.0,
+          10.0,
+          86.0,
+          253.0,
+          0.0
+        ]
+      ],
+      "optimal_val_conf": 0.193,
+      "optimal_val_f1": 0.3401,
+      "metric_gate": {
+        "passed": false,
+        "map50": 0.3655,
+        "min_map50": 0.5,
+        "d40_ap50": 0.4105,
+        "min_pothole_ap50": 0.55
+      },
+      "onnx_path": "runs/e1_yolo11s_640/weights/best.onnx"
+    }
+  },
+  "robustness_m06": {
+    "baseline": {
+      "detections": 0,
+      "mean_conf": 0.0
+    },
+    "brightness_plus_30": {
+      "detections": 0,
+      "mean_conf": 0.0
+    },
+    "brightness_minus_30": {
+      "detections": 0,
+      "mean_conf": 0.0
+    },
+    "gaussian_blur": {
+      "detections": 1,
+      "mean_conf": 0.1946
+    },
+    "jpeg_q30": {
+      "detections": 0,
+      "mean_conf": 0.0
+    },
+    "half_size": {
+      "detections": 0,
+      "mean_conf": 0.0
+    }
+  },
   "performance": {
     "P01_photo_20_seq": {
       "n_requests": 20,
-      "p50_ms": 71.89,
-      "p95_ms": 109.86
+      "p50_ms": 115.13,
+      "p95_ms": 163.16
     },
     "P02_memory_100_req": {
       "n_requests": 100,
-      "growth_mb": 0.365,
-      "peak_traced_mb": 0.505
+      "growth_mb": 0.321,
+      "peak_traced_mb": 0.501
     },
     "P03_video_720p_job": {
-      "elapsed_s": 0.103,
+      "elapsed_s": 0.164,
       "unique_detections": 1
     }
   }

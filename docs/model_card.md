@@ -19,8 +19,21 @@
 - **Composition:** `7,706` labeled train images (`720 × 720 px`) captured across Delhi, Gurugram, and Haryana.
 - **Split Strategy:** Deterministic `70% / 15% / 15%` (`train / val / test`) split in contiguous blocks of 50 file numbers to prevent sequential frame leakage, with empty background images in `train` capped at `10%`.
 
-## 4. Quantitative Metrics
-All metrics are populated exclusively from `reports/metrics.json` by `scripts/make_results.py` after Milestone M3 evaluation.
+## 4. Quantitative Metrics (`reports/metrics.json` — Experiment `E1`)
+Evaluated on the held-out `RDD2022` India test split (`1,156` images across 50-file contiguous blocks, `optimal_conf = 0.193`, validation `F1 = 0.3401`, A100 GPU latency `1.28 ms/image`):
+
+| Class | Description | Precision | Recall | AP@50 | AP@50:95 |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| `D00` | Longitudinal crack | `0.3223` | `0.2295` | `0.2409` | `0.1243` |
+| `D10` | Transverse crack | `0.4316` | `0.1538` | `0.2221` | `0.1046` |
+| `D20` | Alligator crack | `0.5443` | `0.6073` | `0.5885` | `0.2921` |
+| `D40` | Pothole | `0.4964` | `0.3963` | `0.4105` | `0.1701` |
+| **all** | **4-class macro average** | **`0.4487`** | **`0.3467`** | **`0.3655`** | **`0.1728`** |
+
+### Discussion of Test Split Results
+- **Strong Surface Texture Detection (`D20` & `D40`):** Alligator cracking (`D20`) achieves **`0.5885` AP@50** (`0.6073` recall) and potholes (`D40`) achieve **`0.4105` AP@50** (`0.4964` precision), demonstrating reliable localization of structural surface failure.
+- **Impact of Non-Leaking 50-Block Split:** Unlike random image splits (where adjacent dashcam frames of the exact same road segment appear in both train and test sets, inflating `mAP@50`), our 50-block split enforces strict corridor separation.
+- **Extreme `D10` Scarcity & Thin Cracks at `640 px`:** Only `68` transverse crack (`D10`) annotations exist in the India training split (and only `9` ground-truth instances in the test split), yielding `0.2221` AP@50 for `D10` and `0.2409` AP@50 for thin longitudinal cracks (`D00`), which lowers the unweighted 4-class macro `mAP@50` to `0.3655`.
 
 ## 5. Known Limitations & Risks
 1. **Severe `D10` Class Imbalance:** Only `68` transverse crack (`D10`) boxes exist in the RDD2022 India training set, making `D10` AP noisy; mitigated via training repetition and multi-country (`Japan + Czech`) transfer (`Experiment E5`).

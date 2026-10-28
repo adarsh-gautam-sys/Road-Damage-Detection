@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import json
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -290,9 +291,20 @@ def build_all_results(
         )
         _plot_ablations(experiments, figures_dir / "results_ablations.png")
 
-    e1_csv = runs_dir / "e1_yolo11s_640" / "results.csv"
+    e1_run_dir = runs_dir / "e1_yolo11s_640"
+    e1_csv = e1_run_dir / "results.csv"
     if e1_csv.is_file():
         _plot_training_curves_from_csv(e1_csv, figures_dir / "training_curves_e1.png")
+
+    for plot_name in (
+        "confusion_matrix_normalized.png",
+        "PR_curve.png",
+        "F1_curve.png",
+        "val_batch0_pred.jpg",
+    ):
+        src_plot = e1_run_dir / plot_name
+        if src_plot.is_file():
+            shutil.copy2(src_plot, figures_dir / plot_name)
 
     return {
         "status": "populated" if "E1" in experiments else "awaiting_colab_runs",

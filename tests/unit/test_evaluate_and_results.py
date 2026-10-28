@@ -127,7 +127,7 @@ def test_smoke_determinism_negatives_and_onnx_parity(project_root: Path) -> None
         app_yaml_path=project_root / "configs" / "app.yaml",
         yolo_loader=lambda _p: stub,
     )
-    assert smoke["configured_conf"] == 0.25
+    assert smoke["configured_conf"] == pytest.approx(0.193)
     assert len(smoke["images"]) == 5
     assert smoke["images"][0]["detections"][0]["class_code"] == "D40"
 

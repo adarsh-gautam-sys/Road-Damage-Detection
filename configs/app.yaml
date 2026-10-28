@@ -10,7 +10,7 @@ model:
   run: "e1_yolo11s_640"
   weights_path: "runs/e1_yolo11s_640/weights/best.pt"
   onnx_path: "runs/e1_yolo11s_640/weights/best.onnx"
-  default_conf: 0.25
+  default_conf: 0.193
   iou_threshold: 0.45
 
 uploads:

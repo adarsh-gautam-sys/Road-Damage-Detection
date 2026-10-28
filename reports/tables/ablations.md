@@ -1,0 +1,5 @@
+# Ablations Table (E1–E7)
+
+| Experiment | mAP@50 | mAP@50:95 | Pothole AP@50 | D10 AP@50 | Parameters (M) | GPU ms | CPU ms |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| E1 | 0.3655 | 0.1728 | 0.4105 | 0.2221 | 9.4 | 1.28 | 151.71 |

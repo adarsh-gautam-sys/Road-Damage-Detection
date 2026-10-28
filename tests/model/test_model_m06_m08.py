@@ -97,6 +97,12 @@ def test_m08_inference_speed_benchmark(generated_fixtures_dir: Path) -> None:
         times_ms.append((time.perf_counter() - t0) * 1000.0)
 
     median_ms = float(np.median(times_ms))
+    if not torch.cuda.is_available() and METRICS_PATH.is_file():
+        doc = json.loads(METRICS_PATH.read_text(encoding="utf-8"))
+        if "E1" in doc.get("experiments", {}):
+            doc["experiments"]["E1"]["cpu_ms"] = round(median_ms, 2)
+            METRICS_PATH.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
+
     if torch.cuda.is_available():
         assert median_ms <= 100.0, f"GPU median latency {median_ms:.2f} ms > 100 ms"
     else:

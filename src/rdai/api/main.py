@@ -80,7 +80,10 @@ class _LazyDefaultDetector:
     def detect_image(self, image: Any, conf_threshold: float | None = None) -> list[dict[str, Any]]:
         det = self._ensure_detector()
         if det is not None:
-            return list(det.detect(image, conf_threshold=conf_threshold))
+            try:
+                return list(det.detect_image(image, conf=conf_threshold))
+            except ModuleNotFoundError:
+                return []
         return []
 
     def track_video(

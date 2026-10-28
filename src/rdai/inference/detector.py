@@ -130,3 +130,13 @@ class RoadDamageDetector:
                 }
             )
         return detections
+
+    def detect(
+        self,
+        image_source: Any,
+        conf: float | None = None,
+        conf_threshold: float | None = None,
+    ) -> list[dict[str, Any]]:
+        """Alias for `detect_image` accepting either `conf` or `conf_threshold`."""
+        effective_conf = conf if conf is not None else conf_threshold
+        return self.detect_image(image_source, conf=effective_conf)
