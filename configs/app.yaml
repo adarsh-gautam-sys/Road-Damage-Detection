@@ -32,6 +32,17 @@ geo:
     lng_min: 68.0
     lng_max: 98.0
 
+client:
+  preview_fps: 4
+  preview_max_edge_px: 640
+  preview_jpeg_quality: 0.7
+  upload_max_edge_px: 1280
+  upload_jpeg_quality: 0.85
+  auto_patrol_min_distance_m: 10.0
+  auto_patrol_min_interval_s: 5.0
+  gps_good_accuracy_m: 10.0
+  job_poll_interval_ms: 1000
+
 pagination:
   default_limit: 20
   max_limit: 100

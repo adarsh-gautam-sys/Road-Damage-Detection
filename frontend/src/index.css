@@ -1,0 +1,280 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+/*
+ * Own-world tokens: matte anodised anthracite chassis, hairline etched rules,
+ * one recessed bone-grey LCD for every measured number, one gold plate for the primary action.
+ * Fill colours carry white/ink text at >= 4.5:1; *-text variants are for type set directly on the chassis.
+ */
+@theme {
+  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-label: "Barlow Semi Condensed", "Barlow", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+
+  --color-chassis: #181b1f;
+  --color-panel: #21252b;
+  --color-raised: #2a2f37;
+  --color-etch: #323842;
+  --color-etch-strong: #454c58;
+  --color-lcd: #d8ddd2;
+  --color-lcd-dim: #b9bfb3;
+  --color-lcd-ink: #121512;
+  --color-ink: #f3f4f6;
+  --color-ink-2: #b8c0cc;
+  --color-ink-3: #8b94a3;
+  --color-gold: #f2c200;
+  --color-gold-ink: #141412;
+  --color-gold-press: #d9ad00;
+
+  --color-sev-high: #e02828;
+  --color-sev-med: #e59400;
+  --color-sev-low: #23805f;
+  --color-sev-high-text: #ff7a72;
+  --color-sev-med-text: #f5b13d;
+  --color-sev-low-text: #4fc3a0;
+  --color-linear: #38bdf8;
+
+  --shadow-plate: 0 1px 0 rgb(255 255 255 / 0.06) inset, 0 6px 14px -6px rgb(0 0 0 / 0.55);
+  --shadow-sheet: 0 -18px 40px -12px rgb(0 0 0 / 0.65);
+}
+
+:root {
+  --sev-high: #e02828;
+  --sev-med: #e59400;
+  --sev-low: #23805f;
+  --cls-linear: #38bdf8;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-chassis);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+  caret-color: var(--color-gold);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-gold-ink);
+}
+
+/* Browser surfaces themed from the palette */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-etch-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-etch-strong);
+  border-radius: 8px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-family: var(--font-label);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--color-ink-2);
+}
+
+/* Recessed transflective LCD */
+.lcd {
+  background: var(--color-lcd);
+  color: var(--color-lcd-ink);
+  font-family: var(--font-mono);
+  border: 1px solid #0c0e10;
+  border-radius: 6px;
+  box-shadow:
+    inset 0 2px 5px rgb(0 0 0 / 0.28),
+    0 1px 0 rgb(255 255 255 / 0.06);
+}
+
+/* Etched hairline plate (replaces cards: borders, not boxes within boxes) */
+.plate {
+  background: var(--color-panel);
+  border: 1px solid var(--color-etch);
+  border-radius: 8px;
+}
+
+/* Native range, themed */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  background: transparent;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: #0c0e10;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px var(--color-etch-strong);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -9px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 2px solid var(--color-gold-ink);
+}
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: #0c0e10;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px var(--color-etch-strong);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 2px solid var(--color-gold-ink);
+}
+.lcd input[type="range"]::-webkit-slider-runnable-track {
+  background: #6e7468;
+  box-shadow: none;
+}
+.lcd input[type="range"]::-moz-range-track {
+  background: #6e7468;
+  box-shadow: none;
+}
+.lcd input[type="range"]::-webkit-slider-thumb {
+  background: var(--color-lcd-ink);
+  border-color: var(--color-lcd);
+}
+.lcd input[type="range"]::-moz-range-thumb {
+  background: var(--color-lcd-ink);
+  border-color: var(--color-lcd);
+}
+
+/* The one authored moment: shutter commit. Brackets snap in while the glass takes an exposure. */
+@keyframes exposure {
+  0% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes bracket-snap {
+  0% {
+    inset: 0;
+  }
+  35% {
+    inset: 14px;
+  }
+  100% {
+    inset: 0;
+  }
+}
+.shutter-flash {
+  animation: exposure 260ms var(--ease-out) forwards;
+  background: #fff;
+  pointer-events: none;
+}
+.bracket-frame.snap {
+  animation: bracket-snap 420ms var(--ease-out);
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}
+.skeleton {
+  background: linear-gradient(100deg, var(--color-panel) 30%, var(--color-raised) 50%, var(--color-panel) 70%);
+  background-size: 220% 100%;
+  animation: skeleton 1.4s linear infinite;
+  border-radius: 6px;
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.sheet-in {
+  animation: sheet-up 240ms var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shutter-flash,
+  .bracket-frame.snap,
+  .skeleton,
+  .sheet-in {
+    animation: none;
+  }
+  .shutter-flash {
+    opacity: 0;
+  }
+}
+
+/* Leaflet themed to the chassis */
+.leaflet-container {
+  background: #14171a;
+  font-family: var(--font-sans);
+}
+.leaflet-control-zoom a {
+  background: var(--color-panel) !important;
+  color: var(--color-ink) !important;
+  border-color: var(--color-etch) !important;
+  width: 44px !important;
+  height: 44px !important;
+  line-height: 44px !important;
+}
+.leaflet-control-attribution {
+  background: rgb(24 27 31 / 0.85) !important;
+  color: var(--color-ink-2) !important;
+}
+.leaflet-control-attribution a {
+  color: var(--color-gold) !important;
+}
+.rd-marker {
+  background: none;
+  border: none;
+}

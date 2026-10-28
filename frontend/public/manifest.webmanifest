@@ -1,0 +1,13 @@
+{
+  "name": "Road Damage AI",
+  "short_name": "RoadDamageAI",
+  "description": "Detect, grade and prioritise road defects.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#181b1f",
+  "theme_color": "#181b1f",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

@@ -822,6 +822,17 @@ def create_app(
                     .order_by(DetectionRecord.severity_score.desc())
                 ).all()
             )
+            img_ids = {m.image_id for m in members if m.image_id is not None}
+            imgs_map = (
+                {
+                    img.id: img
+                    for img in session.scalars(
+                        select(ImageRecord).where(ImageRecord.id.in_(img_ids))
+                    ).all()
+                }
+                if img_ids
+                else {}
+            )
             return {
                 "id": s.id,
                 "centroid_lat": s.centroid_lat,
@@ -839,9 +850,18 @@ def create_app(
                     {
                         "id": m.id,
                         "image_id": m.image_id,
+                        "thumb_url": imgs_map[m.image_id].thumb_url
+                        if m.image_id in imgs_map
+                        else None,
+                        "annotated_url": imgs_map[m.image_id].annotated_url
+                        if m.image_id in imgs_map
+                        else None,
                         "class_code": m.class_code,
                         "class_name": m.class_name,
                         "confidence": round(float(m.confidence), 4),
+                        "box": [round(m.x1, 2), round(m.y1, 2), round(m.x2, 2), round(m.y2, 2)],
+                        "extent": round(float(m.extent), 4),
+                        "measure": m.measure,
                         "severity_score": round(float(m.severity_score), 2),
                         "severity_label": m.severity_label,
                         "lat": m.lat,
@@ -1056,6 +1076,97 @@ def create_app(
                 media_type="text/csv; charset=utf-8",
                 headers={"Content-Disposition": 'attachment; filename="detections.csv"'},
             )
+
+    @app.post(f"{prefix}/detect/preview", include_in_schema=False)
+    async def detect_preview_endpoint(
+        file: Annotated[UploadFile, File(...)],
+        conf: Annotated[float | None, Form()] = None,
+    ) -> dict[str, Any]:
+        """Stateless live-camera frame preview (~4-5 FPS) without DB persistence."""
+        import time
+
+        t0 = time.perf_counter()
+        raw_bytes = await file.read()
+        safe_name = sanitize_filename(file.filename)
+        pil_img, _fmt = validate_and_decode_image(
+            raw_bytes=raw_bytes,
+            filename=safe_name,
+            max_photo_mb=cfg.max_photo_mb,
+            max_megapixels=cfg.max_megapixels,
+            allowed_formats=cfg.allowed_image_formats,
+        )
+        conf_used = float(conf) if conf is not None else cfg.default_conf
+        if not (0.0 < conf_used <= 1.0):
+            raise APIError(422, "INVALID_CONF", "Confidence threshold must be in (0.0, 1.0].")
+
+        raw_detections = active_detector.detect_image(pil_img, conf_threshold=conf_used)
+        elapsed_ms = round((time.perf_counter() - t0) * 1000.0, 2)
+        return {
+            "width": pil_img.width,
+            "height": pil_img.height,
+            "conf_used": conf_used,
+            "inference_ms": elapsed_ms,
+            "detections": raw_detections,
+        }
+
+    @app.get(f"{prefix}/config", include_in_schema=False)
+    def get_client_config() -> dict[str, Any]:
+        """Serve YAML-driven thresholds so the frontend never hard-codes them."""
+        import yaml
+
+        cfg_dir = Path(__file__).resolve().parents[3] / "configs"
+
+        def _load(name: str) -> dict[str, Any]:
+            path = cfg_dir / name
+            if not path.is_file():
+                return {}
+            loaded = yaml.safe_load(path.read_text(encoding="utf-8"))
+            return loaded if isinstance(loaded, dict) else {}
+
+        app_yaml = _load("app.yaml")
+        priority = _load("priority.yaml")
+        severity = _load("severity.yaml")
+        return {
+            "default_conf": cfg.default_conf,
+            "model": {"name": cfg.model_name, "run": cfg.model_run},
+            "limits": {"max_photo_mb": cfg.max_photo_mb, "max_video_mb": cfg.max_video_mb},
+            "client": dict(app_yaml.get("client", {}) or {}),
+            "priority": {
+                "weights": priority.get("weights", {}),
+                "bands": priority.get("bands", {}),
+                "eps_meters": (priority.get("clustering", {}) or {}).get("eps_meters"),
+                "density_saturation_count": priority.get("density_saturation_count"),
+            },
+            "severity": {
+                "tier_bounds": severity.get("tier_bounds", {}),
+                "classes": severity.get("classes", {}),
+            },
+        }
+
+    @app.get(f"{prefix}/metrics", include_in_schema=False)
+    def get_model_metrics() -> dict[str, Any]:
+        """Serve verified evaluation metrics strictly from `reports/metrics.json`."""
+        project_root = Path(__file__).resolve().parents[3]
+        metrics_file = project_root / "reports" / "metrics.json"
+        sensitivity_file = project_root / "reports" / "tables" / "weight_sensitivity.json"
+        payload: dict[str, Any] = {}
+        if metrics_file.is_file():
+            payload = json.loads(metrics_file.read_text(encoding="utf-8"))
+        if sensitivity_file.is_file():
+            payload["weight_sensitivity"] = json.loads(sensitivity_file.read_text(encoding="utf-8"))
+        return payload
+
+    @app.get("/reports/figures/{filename}", include_in_schema=False)
+    @app.get(f"{prefix}/reports/figures/{{filename}}", include_in_schema=False)
+    def serve_report_figure(filename: str) -> FileResponse:
+        if ".." in filename or "/" in filename or "\\" in filename:
+            raise APIError(400, "INVALID_FIGURE_PATH", "Path traversal is not allowed.")
+        fig_dir = (Path(__file__).resolve().parents[3] / "reports" / "figures").resolve()
+        candidate = (fig_dir / filename).resolve()
+        if fig_dir not in candidate.parents or not candidate.is_file():
+            raise APIError(404, "FIGURE_NOT_FOUND", f"Figure {filename} was not found.")
+        media_type = "image/png" if filename.lower().endswith(".png") else "image/jpeg"
+        return FileResponse(candidate, media_type=media_type)
 
     @app.get("/media/{subpath:path}")
     @app.get(f"{prefix}/media/{{subpath:path}}", include_in_schema=False)

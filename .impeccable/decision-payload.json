@@ -1,0 +1,241 @@
+{
+  "title": "Choose the visual world for Road Damage AI",
+  "question": "The roll assigned Survey of India Topographic Quadrangle. Keep it, pick an alternate world, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Survey of India Topographic Quadrangle",
+      "kicker": "THE ROLL",
+      "lineage": "Survey of India 1:50,000 topographic quadrangle sheets & trig-benchmark field registers",
+      "thesis": "Treat every road inspection as a daylight-legible topographic quadrangle plate framed by graduated coordinate neatlines and benchmark stamps.",
+      "palette": [
+        "#F4EFE4",
+        "#191815",
+        "#D63A1F",
+        "#D98218",
+        "#1E6B4B"
+      ],
+      "materials": [
+        "warm buff map stock",
+        "graduated degree-minute neatline border",
+        "vermilion highway trunk ink",
+        "stamped trig-benchmark triangles"
+      ],
+      "viewport": "Portrait 360px field sheet framed by a degree-minute coordinate neatline (28°27'N · 77°01'E): the live camera patrol aperture sits in the upper quadrangle window with vermilion D40 pothole boxes and severity callouts, over a ruled chainage shutter bar and 4-tab field index.",
+      "risk": "Must keep coordinate neatlines razor-thin on 360px screens so cartographic framing never crowds the live camera viewfinder.",
+      "raised": [
+        {
+          "from": "challenger-specimen",
+          "raise": "Dragging the confidence threshold slider (0.193 default) continuously remaps visible bounding boxes and recalculates segment scores live without an Apply button."
+        },
+        {
+          "from": "challenger-streaming",
+          "raise": "Selecting any detection box or 50m segment dims non-selected boxes and markers to 30% opacity so the active defect's geometry commands focus."
+        },
+        {
+          "from": "challenger-jcard",
+          "raise": "Every 50m segment row rules its four additive priority terms (0.45·S_max + 0.25·D + 0.20·R + 0.10·C = P) in right-aligned tabular numerals."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.png"
+    },
+    {
+      "id": "model-pick",
+      "label": "Leica Total-Station Field Controller",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Leica & Sokkia optical total-station handheld survey controllers and transflective daylight LCDs",
+      "thesis": "An optical engineering instrument built for harsh Indian midday glare, pairing transflective LCD telemetry panels with high-visibility surveyor yellow controls.",
+      "palette": [
+        "#EDEBE4",
+        "#1C1E21",
+        "#F2A900",
+        "#E03125",
+        "#166534"
+      ],
+      "materials": [
+        "transflective daylight LCD ground",
+        "matte anthracite instrument bezel",
+        "surveyor prism yellow shutter key",
+        "optical crosshair reticle ticks"
+      ],
+      "viewport": "Portrait 360px instrument housing: an anthracite top telemetry bar (GPS lock ±4m, E1 YOLO11s conf 0.193) above an optical reticle viewfinder with live D40/D20 bounding boxes, paired with a tactile surveyor-yellow Shutter / Auto-Patrol rocker.",
+      "risk": "Familiar territory: ruggedized survey-hardware instrumentation is where most strong geospatial field tools naturally land.",
+      "comp": ".impeccable/mocks/decision/model-pick.png"
+    },
+    {
+      "id": "challenger-transit",
+      "label": "Midnight Enamel Corridor Diagram",
+      "verdict": "competitive",
+      "lineage": "Metropolitan rail & highway corridor diagrams fired on midnight-blue porcelain enamel",
+      "thesis": "Organize Indian road maintenance as a midnight-blue enamel corridor diagram where 50m segments glow in scarlet, amber, and emerald along disciplined 45°/90° highway lines.",
+      "palette": [
+        "#0F1B2D",
+        "#F7F9FC",
+        "#E11D48",
+        "#F59E0B",
+        "#10B981"
+      ],
+      "materials": [
+        "midnight-blue porcelain enamel ground",
+        "porcelain-white station and chainage ticks",
+        "scarlet, amber, and green route line inks"
+      ],
+      "viewport": "Portrait 360px enamel board: live camera HUD docked above a 45°/90° schematic highway corridor line where each 50m DBSCAN segment blooms as a porcelain interchange circle colored by Priority Score.",
+      "case": "Wins strongly on 50m corridor wayfinding and status legibility; slightly less natural than daylight paper under glaring outdoor sun.",
+      "risk": "Schematic 45°/90° corridor lines must coexist cleanly with real-world Leaflet OpenStreetMap geometry.",
+      "comp": ".impeccable/mocks/decision/challenger-transit.png",
+      "hero": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-midnight-transit-diagram-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-midnight-transit-diagram.webp"
+    },
+    {
+      "id": "challenger-acetate",
+      "label": "Punched Acetate Field Manual",
+      "verdict": "competitive",
+      "lineage": "Boxed engineering reference manuals with stepped fore-edge tab rails and hinged milk-acetate overlay leaves",
+      "thesis": "Each app mode is a full-strength colored divider board (chrome yellow, oxide orange, survey teal, sienna) beneath a punched milk-acetate inspection sheet.",
+      "palette": [
+        "#F4F1EA",
+        "#D97706",
+        "#C2410C",
+        "#0F766E",
+        "#18181B"
+      ],
+      "materials": [
+        "translucent milk-acetate leaf",
+        "full-strength chrome-yellow and oxide-orange divider boards",
+        "stepped fore-edge tab rail",
+        "vermilion errata slips for High severity"
+      ],
+      "viewport": "Portrait 360px binder with a stepped right-edge tab rail (Capture, Map, Queue, Audit): a punched milk-acetate sheet floats 1mm above a chrome-yellow Capture board, framing the live camera aperture and vermilion severity slips.",
+      "case": "Translates bounding-box overlays literally as transparent acetate inspection sheets over road photography; stepped fore-edge rail steals a few horizontal pixels on 360px.",
+      "risk": "Two-frame 90ms hinge steps and fore-edge tabs require disciplined layout budget on narrow phones.",
+      "comp": ".impeccable/mocks/decision/challenger-acetate.png",
+      "hero": "https://impeccable.style/worlds/cards/rw-manual-acetate-tab-board-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/rw-manual-acetate-tab-board.webp"
+    },
+    {
+      "id": "challenger-atlas",
+      "label": "Night-Vision Coordinate Star Atlas",
+      "verdict": "competitive",
+      "lineage": "Celestial star atlas charts with magnitude-scaled dot diameters and red-flashlight annotations",
+      "thesis": "Plot road defects as magnitude-scaled circles (Severity 0–100 mapped to dot diameter) on a dark coordinate sphere ringed in night-vision amber and red.",
+      "palette": [
+        "#0B132B",
+        "#F8F9FA",
+        "#EF4444",
+        "#F59E0B",
+        "#38BDF8"
+      ],
+      "materials": [
+        "deep navy chart ground",
+        "chalk-white coordinate graticules",
+        "red-flashlight annotation rings",
+        "magnitude-scaled dot ramp"
+      ],
+      "viewport": "Portrait 360px coordinate plate: live camera viewfinder ringed in red-flashlight amber above a graticule chart where 50m segments scale in diameter by Priority Score P.",
+      "case": "Magnitude-scaled dot diameters encode Severity S and Priority P without text clutter; astronomical serif voice is foreign to civil road engineering.",
+      "risk": "Astronomical chart conventions can feel esoteric to municipal PWD engineers.",
+      "comp": ".impeccable/mocks/decision/challenger-atlas.png",
+      "hero": "https://impeccable.style/worlds/cards/notation-diagram-systems-star-atlas-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/notation-diagram-systems-star-atlas.webp"
+    },
+    {
+      "id": "challenger-specimen",
+      "label": "Interactive Axis Specimen",
+      "verdict": "declined",
+      "lineage": "Interactive variable-font foundry specimens",
+      "thesis": "A stark paper-and-ink grid where dragging the confidence threshold or priority weights morphs every detection card in real time.",
+      "palette": [
+        "#FAF9F6",
+        "#111111",
+        "#DC2626"
+      ],
+      "materials": [
+        "stark foundry paper",
+        "ink black hairlines",
+        "continuous axis sliders"
+      ],
+      "viewport": "Oversized severity score numerals above a continuous confidence axis slider and minimal monospace detection grid.",
+      "case": "Fuses poorly on audience identity: field inspectors need camera and map spatial context, not a typography specimen.",
+      "kept": "Direct-manipulation slider coupling that remaps detections and priority scores continuously without an Apply button.",
+      "risk": "Lacks geospatial and camera viewfinder affordances.",
+      "hero": "https://impeccable.style/worlds/cards/variable-font-specimen-hero.webp"
+    },
+    {
+      "id": "challenger-streaming",
+      "label": "Corridor Poster Wall",
+      "verdict": "declined",
+      "lineage": "Streaming catalog horizontal poster walls",
+      "thesis": "Horizontal scrolling rails of road-corridor photo tiles that expand on focus to reveal severity chips while dimming neighbor rows.",
+      "palette": [
+        "#121212",
+        "#FFFFFF",
+        "#E50914"
+      ],
+      "materials": [
+        "deep neutral cinema ground",
+        "full-bleed photo tiles",
+        "focus-lift row dimming"
+      ],
+      "viewport": "Rows of road-crop thumbnails grouped by highway class, lifting on focus.",
+      "case": "Entertainment browsing grammar obscures civil-engineering spatial clustering and four-term priority math.",
+      "kept": "Focus-driven dimming of non-selected bounding boxes and map markers when inspecting a single defect.",
+      "risk": "Reads like media consumption rather than an engineering triage tool.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-streaming-title-card-wall-hero.webp"
+    },
+    {
+      "id": "challenger-jcard",
+      "label": "Folded Patrol Log J-Card",
+      "verdict": "declined",
+      "lineage": "Hand-lettered cassette mixtape J-cards ruled in ballpoint on lined inlay stock",
+      "thesis": "A two-sided folded patrol card where Side A logs field camera captures and Side B tallies ranked segment repairs.",
+      "palette": [
+        "#FBFBF9",
+        "#1D4ED8",
+        "#6B7280",
+        "#DC2626"
+      ],
+      "materials": [
+        "lined cardstock inlay",
+        "ballpoint blue ink rules",
+        "red spine stripe"
+      ],
+      "viewport": "A narrow ruled card with Side A / Side B flip and right-aligned running tallies.",
+      "case": "Cassette tape nostalgia does not connect to municipal road inspection.",
+      "kept": "Tight right-aligned tabular accounting of the four additive priority terms along each segment row.",
+      "risk": "Novelty paper metaphor fights interactive map exploration.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-cassette-j-card-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "Clean Civic GIS & AI Triage App",
+    "thesis": "The modern municipal GIS and computer-vision standard: crisp slate cards, semantic red/amber/emerald severity pills, and a clean bottom-tab mobile shell.",
+    "palette": [
+      "#F8FAFC",
+      "#0F172A",
+      "#2563EB",
+      "#DC2626",
+      "#D97706"
+    ],
+    "materials": [
+      "clean matte card surfaces",
+      "semantic severity badges",
+      "high-contrast camera HUD overlay"
+    ],
+    "viewport": "Standard mobile-first civic inspection app with a clean top status bar, rounded camera viewfinder card, confidence slider, and 4-icon bottom navigation bar.",
+    "risk": "Immediately familiar and frictionless, though visually similar to standard modern GIS/GovTech apps.",
+    "comp": ".impeccable/mocks/decision/canon.png"
+  },
+  "steer": true
+}

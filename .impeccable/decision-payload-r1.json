@@ -1,0 +1,241 @@
+{
+  "title": "Re-Roll Hand 1 — Choose the visual world for Road Damage AI",
+  "question": "Fresh hand dealt (Assigned: BRO / NHAI Kilometer-Stone & Chevron System). Keep it, pick an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "BRO / NHAI Kilometer-Stone & Hazard Chevron",
+      "kicker": "THE ROLL",
+      "lineage": "Indian National Highway (NHAI) & Border Roads Organisation (BRO) cast-concrete kilometer stones and retro-reflective hazard chevrons",
+      "thesis": "Engineered for 80 km/h roadside legibility: bold highway-yellow crown headers, lime-washed concrete cards, stencil numerals, and crimson hazard blocks.",
+      "palette": [
+        "#F4F4F0",
+        "#111315",
+        "#FACC15",
+        "#DC2626",
+        "#15803D"
+      ],
+      "materials": [
+        "lime-washed concrete surface",
+        "highway milestone crown yellow",
+        "stencil black chainage numerals",
+        "retro-reflective crimson hazard chevrons"
+      ],
+      "viewport": "Portrait 360px milestone frame: a semicircular/crowned highway-yellow header ('NH-48 · KM 14+250 · GPS LOCK') above a high-contrast Live Camera Patrol HUD with a bottom severity pulse strip, single reversed 'LOG DEFECT' plate, and 1px SVG callout lines linking each bounding box to its severity card.",
+      "risk": "Highway-yellow crown and hazard chevrons must be used with strict restraint so they highlight critical alerts without overwhelming dense tables.",
+      "raised": [
+        {
+          "from": "challenger-saville",
+          "raise": "A hairline severity pulse strip along the bottom of the Live Camera HUD plots the continuous 0–100 severity score across recent patrol frames."
+        },
+        {
+          "from": "challenger-centrerail",
+          "raise": "A 1-device-pixel SVG connector rule links each detected bounding box directly to its severity breakdown card."
+        },
+        {
+          "from": "challenger-sliderack",
+          "raise": "Exactly one element per screen—the primary 'LOG DEFECT' trigger or top-ranked urgent segment—reverses onto an opaque full-strength plate."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/assigned-r1.png"
+    },
+    {
+      "id": "model-pick",
+      "label": "ATMS Highway Command & Linear Strip-Map",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Advanced Traffic Management System (ATMS) highway corridor consoles and linear chainage strip maps",
+      "thesis": "An asphalt-slate highway operations console that pairs a live patrol HUD with a linear 50m corridor strip-map and tabular priority breakdown.",
+      "palette": [
+        "#14181F",
+        "#F8FAFC",
+        "#EF4444",
+        "#F59E0B",
+        "#10B981"
+      ],
+      "materials": [
+        "asphalt-slate console ground",
+        "reflective lane-marking white type",
+        "linear 50m chainage strip bar",
+        "semantic red/amber/emerald status lamps"
+      ],
+      "viewport": "Portrait 360px dark-asphalt command shell: top live corridor strip showing 50m segments along the road, center Live Camera Patrol HUD with crisp bounding boxes and FPS/GPS telemetry, and bottom one-thumb shutter + Auto-Patrol bar.",
+      "risk": "The most natural dark-mode operations center for highway monitoring; familiar to traffic and fleet management tools.",
+      "comp": ".impeccable/mocks/decision/model-pick-r1.png"
+    },
+    {
+      "id": "challenger-boarding",
+      "label": "Segmented Defect Pass & Live Reranking Gate Board",
+      "kicker": "CHALLENGER",
+      "verdict": "competitive",
+      "lineage": "Segmented travel boarding passes paired with live-reranking departure gate boards",
+      "thesis": "Every road capture issues a stamped, segmented Defect Pass while the 50m Priority Board smoothly reranks rows in place and holds an alert glow on changed segments.",
+      "palette": [
+        "#F8F9FA",
+        "#111827",
+        "#EA580C",
+        "#DC2626",
+        "#2563EB"
+      ],
+      "materials": [
+        "perforated segmented pass cards",
+        "monospaced coordinate/extent barcode block",
+        "live-reranking priority rows with persistent change highlight"
+      ],
+      "viewport": "Portrait 360px split: upper perforated Inspection Pass (Live Camera HUD + tabular GPS/Extent stub) above a live-reranking 50m Segment Board where newly logged potholes animate their segment row upward and hold an orange alert badge.",
+      "case": "Maps directly to Road Damage AI's core loop: capturing a defect immediately reranks the 50m segment board in place.",
+      "risk": "Must keep pass perforation motifs functional rather than decorative.",
+      "comp": ".impeccable/mocks/decision/challenger-boarding.png",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-boarding-pass-and-gate-board-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/vernacular-ephemera-boarding-pass-and-gate-board.webp"
+    },
+    {
+      "id": "challenger-splitflap",
+      "label": "Concourse Split-Flap Dispatch Board",
+      "verdict": "competitive",
+      "lineage": "Rail concourse mechanical split-flap boards in matte black and brushed steel with amber/red row lamps",
+      "thesis": "The 50m maintenance queue as a mechanical dispatch board: fixed character cells, amber/crimson row lamps, and per-character flap cascades when priorities update.",
+      "palette": [
+        "#18181B",
+        "#FAFAFA",
+        "#F59E0B",
+        "#EF4444",
+        "#71717A"
+      ],
+      "materials": [
+        "matte-black split-flap cells",
+        "brushed-steel frame ground",
+        "amber and crimson row indicator lamps"
+      ],
+      "viewport": "Portrait 360px brushed-steel frame: Live Camera HUD window docked above a matte-black split-flap priority board where segment IDs, road classes (NH/SH), and Priority Scores (P=74.2) clack into place.",
+      "case": "Makes priority score recomputation and status changes ('OPEN -> SCHEDULED') visceral and unmistakably legible.",
+      "risk": "Split-flap cell grid works best on ranked tables and telemetry headers; body prose must stay clean sans.",
+      "comp": ".impeccable/mocks/decision/challenger-splitflap.png",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-split-flap-concourse-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-split-flap-concourse.webp"
+    },
+    {
+      "id": "challenger-metro",
+      "label": "Typographic Panorama & Live Flip Tiles",
+      "verdict": "competitive",
+      "lineage": "Pure-black typographic tile grids where chrome disappears and giant numerals + flat color fields are the interface",
+      "thesis": "Delete all card borders and bevels: giant severity numerals and flat crimson/amber/cyan live tiles tilt under the thumb and flip to reveal 4-term math.",
+      "palette": [
+        "#000000",
+        "#FFFFFF",
+        "#E11D48",
+        "#F59E0B",
+        "#06B6D4"
+      ],
+      "materials": [
+        "OLED pure-black ground",
+        "flat full-bleed color tiles",
+        "oversized light-weight numerals"
+      ],
+      "viewport": "Portrait 360px zero-chrome grid: full-width Live Camera tile above square live-flipping tiles for Severity (78.4), Priority (74.2), GPS lock, and one-tap Shutter flood.",
+      "case": "Exceptional one-handed mobile thumb ergonomics and zero visual clutter on 360px screens.",
+      "risk": "Oversized cropped headers require careful tuning so long technical labels never clip.",
+      "comp": ".impeccable/mocks/decision/challenger-metro.png",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-metro-typographic-tiles-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/digital-design-canon-metro-typographic-tiles.webp"
+    },
+    {
+      "id": "challenger-saville",
+      "label": "Pulsar Waveform & Color-Code Index",
+      "verdict": "declined",
+      "lineage": "Factory Records catalog sleeves with stacked white pulse lines and color-coded block legends",
+      "thesis": "A matte-black surface dominated by a stacked white severity waveform and coded color blocks.",
+      "palette": [
+        "#0A0A0A",
+        "#FFFFFF",
+        "#EF4444",
+        "#3B82F6"
+      ],
+      "materials": [
+        "matte-black sleeve ground",
+        "white hairline pulse stack",
+        "coded color-block strip"
+      ],
+      "viewport": "Stacked white severity waveform lines over vast black space with a small catalog index.",
+      "case": "Violates our accessibility rule that severity must always show text label + icon + color, never cryptic color blocks decoded on hover.",
+      "kept": "A live hairline severity pulse strip at the bottom of the camera HUD plotting recent frame scores.",
+      "risk": "Cryptic color codes slow down field triage.",
+      "hero": "https://impeccable.style/worlds/cards/brand-identity-canon-saville-catalog-sleeve-hero.webp"
+    },
+    {
+      "id": "challenger-centrerail",
+      "label": "Twin-Column Centre-Rail Apparatus",
+      "verdict": "declined",
+      "lineage": "Wide-margin scholarly reference editions with twinned columns around a 1px vermilion key rail",
+      "thesis": "Two narrow text columns twinned around a 1px vermilion centre rail inside four-inch annotation margins.",
+      "palette": [
+        "#F5F2EB",
+        "#181818",
+        "#D63A1F"
+      ],
+      "materials": [
+        "unbleached bone paper",
+        "1px ruling engine hairlines",
+        "vermilion marginal keys"
+      ],
+      "viewport": "Twinned narrow columns flanking a centre key rail with wide outer margins.",
+      "case": "Twinned columns plus wide annotation margins cannot fit a 360px mobile camera viewfinder and map.",
+      "kept": "1-device-pixel SVG connector rules linking detected bounding boxes directly to their severity cards.",
+      "risk": "Crushes mobile camera viewport width.",
+      "hero": "https://impeccable.style/worlds/cards/rw-centre-rail-reference-setting-hero.webp"
+    },
+    {
+      "id": "challenger-sliderack",
+      "label": "11° Raked Timetable Slide Rack",
+      "verdict": "declined",
+      "lineage": "Pocket airline timetables on a lit goldenrod bed with 11-degree sheared parallelogram containers and a single font size",
+      "thesis": "Every container rakes 11 degrees over a lit goldenrod bed with all text locked to a single pixel size.",
+      "palette": [
+        "#F59E0B",
+        "#1E293B",
+        "#FAF8F5",
+        "#DC2626"
+      ],
+      "materials": [
+        "lit goldenrod bed",
+        "slate-tinted glass slides",
+        "11-degree sheared containers"
+      ],
+      "viewport": "Raked 11-degree parallelogram panes sliding laterally across a goldenrod light table.",
+      "case": "11-degree sheared containers distort orthogonal YOLO bounding boxes and map viewports.",
+      "kept": "Reserving a single full-strength opaque reversed plate per screen for the primary action.",
+      "risk": "Sheared geometry fights rectangular camera frames.",
+      "hero": "https://impeccable.style/worlds/cards/rw-timetable-slide-rack-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "Clean Civic GIS & AI Triage App",
+    "thesis": "The modern municipal GIS and computer-vision standard: crisp slate cards, semantic red/amber/emerald severity pills, and a clean bottom-tab mobile shell.",
+    "palette": [
+      "#F8FAFC",
+      "#0F172A",
+      "#2563EB",
+      "#DC2626",
+      "#D97706"
+    ],
+    "materials": [
+      "clean matte card surfaces",
+      "semantic severity badges",
+      "high-contrast camera HUD overlay"
+    ],
+    "viewport": "Standard mobile-first civic inspection app with a clean top status bar, rounded camera viewfinder card, confidence slider, and 4-icon bottom navigation bar.",
+    "risk": "Immediately familiar and frictionless, though visually similar to standard modern GIS/GovTech apps.",
+    "comp": ".impeccable/mocks/decision/canon-r1.png"
+  },
+  "steer": true
+}
