@@ -200,6 +200,7 @@ def run_training_experiment(
 
     model_weights = str(spec.pop("model"))
     spec["project"] = str(target_project)
+    spec["exist_ok"] = True
     spec["batch"] = profile["batch"]
     spec["cache"] = profile["cache"]
     spec["workers"] = profile["workers"]
