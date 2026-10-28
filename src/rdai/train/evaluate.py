@@ -301,6 +301,14 @@ def evaluate_checkpoint_and_update_metrics(
 ) -> dict[str, Any]:
     """Calibrate threshold on `val`, evaluate once on `test`, export ONNX, and update `metrics.json`."""
     loader = yolo_loader if yolo_loader is not None else _default_yolo_loader
+    if data_yaml_path.is_file() and yolo_loader is None:
+        with data_yaml_path.open("r", encoding="utf-8") as fh:
+            d_cfg = yaml.safe_load(fh)
+        rel_p = Path(str(d_cfg.get("path", "data/rdd2022_india_yolo")))
+        if not rel_p.is_absolute():
+            d_cfg["path"] = (ROOT_DIR / rel_p).resolve().as_posix()
+            with data_yaml_path.open("w", encoding="utf-8") as fh:
+                yaml.safe_dump(d_cfg, fh, sort_keys=False)
     model = loader(str(weights_path))
 
     # 1. Validation split: calibrate optimal F1 confidence threshold
