@@ -100,6 +100,9 @@ export function VideoFlow({ conf, onDone, onViewMap }: Props) {
 
   if (jobId !== null) {
     const pct = Math.round((job?.progress ?? 0) * 100);
+    const summary = (job?.summary ?? {}) as { unique_detections?: number; located_detections?: number; segments_total?: number };
+    const unique = summary.unique_detections ?? 0;
+    const located = summary.located_detections ?? 0;
     return (
       <div className="plate flex flex-col gap-4 p-5">
         <h2 className="font-label text-lg font-semibold">
@@ -128,13 +131,15 @@ export function VideoFlow({ conf, onDone, onViewMap }: Props) {
         {job?.status === "failed" && <ErrorNote message={job.error ?? "The server could not process this video."} />}
         {job?.status === "done" && (
           <p className="text-ink-2">
-            {String((job.summary as { unique_detections?: number }).unique_detections ?? 0)} unique defects after tracking, grouped into{" "}
-            {String((job.summary as { segments_total?: number }).segments_total ?? 0)} segments in total.
+            {unique} unique defect{unique === 1 ? "" : "s"} after tracking
+            {located > 0
+              ? `, ${located} with a location, grouped into ${String(summary.segments_total ?? 0)} segments in total.`
+              : ". None has a location because no GPS track was added, so nothing from this video appears on the map. Defects are still saved and included in the CSV export."}
           </p>
         )}
         {error && <ErrorNote message={error} />}
         <div className="flex flex-wrap gap-3">
-          {job?.status === "done" && <GoldButton onClick={onViewMap}>View on map</GoldButton>}
+          {job?.status === "done" && located > 0 && <GoldButton onClick={onViewMap}>View on map</GoldButton>}
           <PlainButton onClick={reset}>{running ? "Cancel tracking" : "Analyse another video"}</PlainButton>
         </div>
       </div>

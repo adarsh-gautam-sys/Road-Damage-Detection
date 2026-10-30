@@ -92,18 +92,22 @@ class _LazyDefaultDetector:
         conf_threshold: float | None = None,
         progress_callback: Callable[[float], None] | None = None,
     ) -> list[dict[str, Any]]:
+        from rdai.inference.detector import RoadDamageDetector
         from rdai.inference.tracker import track_video_file
 
-        if progress_callback:
-            progress_callback(0.2)
+        if not self._weights_path.exists():
+            raise FileNotFoundError(f"Model weights not found: {self._weights_path}")
+        # A dedicated model per video keeps ByteTrack state and the Ultralytics predictor out of
+        # image/preview inference, which runs concurrently on the shared detector.
+        model = RoadDamageDetector(weights_path=self._weights_path).load()
+        conf = self.default_conf if conf_threshold is None else float(conf_threshold)
         res = track_video_file(
             video_path=video_path,
-            weights_path=self._weights_path,
-            conf_threshold=conf_threshold,
+            model=model,
+            conf=conf,
+            progress_callback=progress_callback,
         )
-        if progress_callback:
-            progress_callback(1.0)
-        return res
+        return list(res["unique_detections"])
 
 
 def _parse_bbox_param(bbox: str | None) -> tuple[float, float, float, float] | None:
@@ -512,6 +516,7 @@ def create_app(
             )
 
             with write_lock, session_factory() as s:
+                n_located = 0
                 for item in deduped:
                     det_lat: float | None = None
                     det_lng: float | None = None
@@ -524,6 +529,7 @@ def create_app(
                         )
                         if interp is not None:
                             det_lat, det_lng = interp[0], interp[1]
+                            n_located += 1
 
                     box = item["box"]
                     sev = item["severity"]
@@ -558,6 +564,7 @@ def create_app(
                     j.summary_json = json.dumps(
                         {
                             "unique_detections": len(deduped),
+                            "located_detections": n_located,
                             "segments_total": n_segs,
                         }
                     )
